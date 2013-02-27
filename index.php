@@ -19,7 +19,8 @@
 /**
  * Define as constantes principais do sistema
  */
-define('ROOT', dirname(__FILE__));
 define('DS', DIRECTORY_SEPARATOR);
-define('CORE', ROOT . DS . 'core');
-define('THEMES', ROOT . DS . 'themes');
+define('ROOT', dirname(__FILE__) . DS);
+define('CORE', ROOT . DS . 'core' . DS);
+define('THEMES', ROOT . DS . 'themes' . DS);
+define('EXT', '.php');
