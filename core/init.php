@@ -1,6 +1,9 @@
 <?php
 /**
-* Alf CMS
+* Carrega o sistema
+*
+* Responsável por carregar os outros arquivos do sistema e inicializar as
+* propriedades necessárias
 *
 * PHP 5
 *
@@ -16,15 +19,4 @@
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
 
-/**
- * Define as constantes principais do sistema
- */
-define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', dirname(__FILE__) . DS);
-define('CORE', ROOT . DS . 'core' . DS);
-define('THEMES', ROOT . DS . 'themes' . DS);
-define('EXT', '.php');
-
-require CORE . 'app' . EXT;
-
-App::load('init');
+error_reporting(E_ALL);
