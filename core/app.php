@@ -2,9 +2,6 @@
 /**
 * Classe principal do sistema
 *
-* Responsável por carregar os outros arquivos do sistema e inicializar as
-* proprioedades necessárias
-*
 * PHP 5
 *
 * Alf CMS
@@ -19,7 +16,7 @@
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
 
-class Alf {
+class App {
 
 /**
  * Inicia o timer interno
