@@ -2,9 +2,6 @@
 /**
 * Classe principal do sistema
 *
-* Responsável por carregar os outros arquivos do sistema e inicializar as
-* proprioedades necessárias
-*
 * PHP 5
 *
 * Alf CMS
@@ -19,7 +16,7 @@
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
 
-class Alf {
+class App {
 
 /**
  * Inicia o timer interno
@@ -51,11 +48,11 @@ class Alf {
             if (is_array($config)){
                 foreach ($config as $file) {
                     if (file_exists($context . DS . $file . '.php')) {
-                        include_once $context . DS . $file . '.php';
+                        require_once $context . DS . $file . '.php';
                     }
                 }
             } else {
-                include_once $context . DS . $config . '.php';
+                require_once $context . DS . $config . '.php';
             }
             return true;
         }

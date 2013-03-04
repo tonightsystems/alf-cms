@@ -27,7 +27,7 @@ class Config {
  *
  * @var array
  */
-    protected static $_values = array();
+    protected static $values = array();
 
 /**
  * Define valores dinâmicos das configurações
@@ -44,7 +44,7 @@ class Config {
         }
 
         foreach ($config as $name => $value) {
-            self::$_values[$name] = $value;
+            self::$values[$name] = $value;
         }
 
         return true;
@@ -57,6 +57,6 @@ class Config {
  * @return mixed        Valor da configuração
  */
     public static function get($key = null) {
-        return self::$_values[$key];
+        return self::$values[$key];
     }
 }
