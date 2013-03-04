@@ -18,3 +18,25 @@
 * @link         https://github.com/tonightsystems/alf-cms
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
+
+/**
+ * Configurações do banco de dados.
+ */
+Config::set('database_host', 'localhost');
+Config::set('database_user', 'root');
+Config::set('database_password', '');
+Config::set('database_name', 'alf');
+Config::set('database_charset', 'utf8');
+
+/**
+ * Define o prefixo das tabelas no banco de dados.
+ *
+ * Alterando o prefixo das tabelas, é possível ter várias instalações em uma
+ * única base de dados.
+ */
+Config::set('table_prefix', 'alf_');
+
+/**
+ * Define a linguagem padrão do sistema.
+ */
+Config::set('language', 'pt-BR');
