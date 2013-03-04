@@ -27,4 +27,13 @@ define('EXT', '.php');
 
 require CORE . 'app' . EXT;
 
-App::load('init');
+App::load(array(
+    'convenience',
+    'config',
+));
+
+// Carrega as configurações do usuário
+App::load('config', ROOT);
+
+// Carrega o sistema em si
+require CORE . 'init' . EXT;
