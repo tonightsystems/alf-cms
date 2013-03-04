@@ -18,5 +18,3 @@
 * @link         https://github.com/tonightsystems/alf-cms
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
-
-error_reporting(E_ALL);
