@@ -25,15 +25,10 @@ define('CORE', ROOT . DS . 'core' . DS);
 define('THEMES', ROOT . DS . 'themes' . DS);
 define('EXT', '.php');
 
-require CORE . 'app' . EXT;
-
-App::load(array(
-    'convenience',
-    'config',
-));
+require CORE . 'convenience' . EXT;
+require CORE . 'config' . EXT;
 
 // Carrega as configurações do usuário
-App::load('config', ROOT);
+require ROOT . 'config' . EXT;
 
-// Carrega o sistema em si
 require CORE . 'init' . EXT;
