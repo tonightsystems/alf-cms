@@ -18,3 +18,11 @@
 * @link         https://github.com/tonightsystems/alf-cms
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
+
+require CORE . 'app' . EXT;
+
+App::start();
+
+// Coisas devem acontecer aqui
+
+App::finish();
