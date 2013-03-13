@@ -19,9 +19,18 @@
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
 
+error_reporting(E_ALL);
+
 require CORE . 'app' . EXT;
 
 App::start();
+
+App::load(array(
+    'exception',
+    'database'. DS .'database',
+));
+
+Database::init();
 
 // Coisas devem acontecer aqui
 

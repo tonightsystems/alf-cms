@@ -57,6 +57,9 @@ class Config {
  * @return mixed        Valor da configuração
  */
     public static function get($key = null) {
+        if (!isset(self::$values[$key])) {
+            throw new Exception(__('Configuration value undefined'));
+        }
         return self::$values[$key];
     }
 }
