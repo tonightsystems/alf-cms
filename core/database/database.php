@@ -93,16 +93,16 @@ class Database {
  * @return [type] [description]
  */
     public function init() {
-        self::$host = Config::get('database_host');
-        self::$user = Config::get('database_user');
-        self::$password = Config::get('database_password');
-        self::$database_name = Config::get('database_name');
-        self::$table_prefix = Config::get('table_prefix');
+        static::$host = Config::get('database_host');
+        static::$user = Config::get('database_user');
+        static::$password = Config::get('database_password');
+        static::$database_name = Config::get('database_name');
+        static::$table_prefix = Config::get('table_prefix');
 
-        self::$mysqli = new mysqli(self::$host, self::$user, self::$password,
-            self::$database_name);
+        static::$mysqli = new mysqli(static::$host, static::$user, static::$password,
+            static::$database_name);
 
-        self::check();
+        static::check();
     }
 
 /**
@@ -125,7 +125,7 @@ class Database {
         if (!isset($query)) {
             throw new Exception(__('Undefined database query'));
         }
-        return self::$mysqli->query(self::escape($query));
+        return static::$mysqli->query(static::escape($query));
     }
 
 /**
@@ -135,7 +135,7 @@ class Database {
  * @return string
  */
     public function escape($string) {
-        return self::$mysql->real_escape_string($string);
+        return static::$mysql->real_escape_string($string);
     }
 
 /**
@@ -144,6 +144,6 @@ class Database {
  * @return boolean
  */
     public function close() {
-        return self::$mysqli->close();
+        return static::$mysqli->close();
     }
 }
