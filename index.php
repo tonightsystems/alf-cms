@@ -25,10 +25,5 @@ define('CORE', ROOT . DS . 'core' . DS);
 define('THEMES', ROOT . DS . 'themes' . DS);
 define('EXT', '.php');
 
-require CORE . 'convenience' . EXT;
-require CORE . 'config' . EXT;
-
-// Carrega as configurações do usuário
-require ROOT . 'config' . EXT;
-
+// Inicia o sistema
 require CORE . 'init' . EXT;
