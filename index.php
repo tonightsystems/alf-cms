@@ -5,7 +5,7 @@
 <!--[if IE]><![endif]-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>ALF CMS</title>
 <meta name="author" content="" />
 <link rel="shortcut icon" href="" />
 <!-- Touch Icons -->
@@ -27,7 +27,11 @@
 </head>
 <body>
 <div id="all">
-    <header id="header"></header>
+    <header id="header">
+        <div class="center">
+            <div id="logo"><img src="img/logo-tema.png"></div>
+        </div>
+    </header>
     <div id="main"></div>
     <footer id="footer"></footer>
 </div>
