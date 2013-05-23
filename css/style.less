@@ -1,0 +1,98 @@
+/**
+ * Application's styles
+ *
+ * In this file, you set up the look and feel of your application.
+ *
+ * Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright       Copyright 2012-2012, Gabriel Izaias (http://gabrielizaias.com)
+ * @license         CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
+ */
+
+/* ===================================================================
+ * = LIBRARIES
+ * =================================================================== */
+@import url(lib/normalize.less);
+
+/* ===================================================================
+ * = FONTS
+ * =================================================================== */
+
+/* ===================================================================
+ * = TEMPLATE
+ * =================================================================== */
+html {
+    overflow-y: auto;
+}
+body {
+    font: 14px/18px Arial, Helvetica, sans-serif;
+    color:#444;
+}
+p {
+    margin: 0 0 10px;
+}
+a {
+    &:hover { }
+    &:active { }
+    &:visited,
+    &:hover {
+        outline: none;
+    }
+}
+ul {
+    padding-left: 0;
+}
+ol {
+    list-style-type: decimal;
+}
+ul ul,
+ol ol {
+    padding-left: 15px;
+}
+small {
+    font-size: 85%;
+}
+textarea {
+    overflow: auto;
+}
+img {
+    -ms-interpolation-mode: bicubic;
+}
+button {
+    cursor: pointer;
+}
+input {
+    &[type=button],
+    &[type=submit] {
+        cursor: pointer;
+    }
+}
+.ie7 input[type="checkbox"] {
+    vertical-align: baseline;
+}
+.ie6 input {
+    vertical-align: text-bottom;
+}
+
+/* HEADER
+ * =================================================================== */
+#header { }
+
+/* CONTENT
+ * =================================================================== */
+#main { }
+
+/* FOOTER
+ * =================================================================== */
+#footer { }
+
+/* ===================================================================
+ * = RESPONSIVE
+ * =================================================================== */
+@import url(responsive.less);
+
+/* ===================================================================
+ * = CONVENIENCE
+ * =================================================================== */
+@import url(utils.less);
