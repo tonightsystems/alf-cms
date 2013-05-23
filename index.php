@@ -30,6 +30,11 @@
     <header id="header">
         <div class="center">
             <div id="logo"><img src="img/logo-tema.png"></div>
+            <ul id="menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
         </div>
     </header>
     <div id="main"></div>
