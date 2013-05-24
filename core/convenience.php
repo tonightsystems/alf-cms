@@ -34,3 +34,17 @@ function pr($var = array()) {
     print_r($var);
     echo '</pre>';
 }
+
+/**
+ * Traduz a string
+ *
+ * Configurado via `Config::set('languafe', '')` no arquivo de configuração do
+ * usuário na raiz do sistema.
+ *
+ * @param  string   $string     A string a ser traduzida
+ * @return string               A string traduzida de acordo com a língua definida
+ * @todo   Criar classe de tradução
+ */
+function __($string) {
+    return $string;
+}

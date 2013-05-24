@@ -19,10 +19,30 @@
 * @license      MIT License (http://www.opensource.org/licenses/mit-license.php)
 */
 
+// Define o nível de aviso de erros do PHP
+error_reporting(E_ALL);
+
+// Requisita a classe principal do sistema
 require CORE . 'app' . EXT;
 
+// Inicia o timer interno do sistema
 App::start();
+
+// Carrega os arquivos do sistema
+App::load(array(
+    'convenience',
+    'config',
+    'exception',
+    'database'. DS .'database',
+));
+
+// Carrega as configurações do usuário
+App::load('config', ROOT);
+
+// Inicia o banco de dados
+Database::init();
 
 // Coisas devem acontecer aqui
 
+// Finaliza o timer do sistema
 App::finish();

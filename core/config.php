@@ -44,7 +44,7 @@ class Config {
         }
 
         foreach ($config as $name => $value) {
-            self::$values[$name] = $value;
+            static::$values[$name] = $value;
         }
 
         return true;
@@ -57,6 +57,9 @@ class Config {
  * @return mixed        Valor da configuração
  */
     public static function get($key = null) {
-        return self::$values[$key];
+        if (!isset(static::$values[$key])) {
+            throw new Exception(__('Configuration value undefined'));
+        }
+        return static::$values[$key];
     }
 }
