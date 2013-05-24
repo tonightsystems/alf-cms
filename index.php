@@ -43,7 +43,9 @@
     </header>
     <div id="main">
         <div class="content center">
-
+            <div id="localizacao">
+                <p>Você está em: <span>Inicia / Sobre</span></p>
+            </div>
         </div>
     </div>
     <footer id="footer"></footer>
