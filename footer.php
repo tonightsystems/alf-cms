@@ -1,4 +1,18 @@
-<footer id="footer"></footer>
+<footer id="footer">
+    <div class="center">
+        <p id="direitos">
+            Alf Content Manegment System © 2013 <br>
+            Telefone: +55 (31) 9911-1900
+        </p>
+        <div id="redes">
+            <span>Redes Sociais:</span>
+            <ul>
+                <li><a href="https://www.facebook.com/MarcoAurelioNoFace" target="_blank"><img src="img/facebook.png" alt=""></a></li>
+                <li><a href="https://www.facebook.com/MarcoAurelioNoFace" target="_blank"><img src="img/twitter.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
 </div>
 <!-- SCRIPTS -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
