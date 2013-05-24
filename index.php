@@ -46,6 +46,14 @@
             <div id="localizacao">
                 <p>Você está em: <span>Inicia / Sobre</span></p>
             </div>
+            <div class="texto">
+                <h2>Titulo da pagina</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, aut, error, dolorum libero odio accusantium aspernatur commodi perferendis sunt iusto assumenda sapiente dignissimos ex. Ipsam, veritatis reprehenderit distinctio nemo necessitatibus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, aut, error, dolorum libero odio accusantium aspernatur commodi perferendis sunt iusto assumenda sapiente dignissimos ex. Ipsam, veritatis reprehenderit distinctio nemo necessitatibus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, aut, error, dolorum libero odio accusantium aspernatur commodi perferendis sunt iusto assumenda sapiente dignissimos ex. Ipsam, veritatis reprehenderit distinctio nemo necessitatibus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, aut, error, dolorum libero odio accusantium aspernatur commodi perferendis sunt iusto assumenda sapiente dignissimos ex. Ipsam, veritatis reprehenderit distinctio nemo necessitatibus.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, aut, error, dolorum libero odio accusantium aspernatur commodi perferendis sunt iusto assumenda sapiente dignissimos ex. Ipsam, veritatis reprehenderit distinctio nemo necessitatibus.</p>
+            </div>
         </div>
     </div>
     <footer id="footer"></footer>
