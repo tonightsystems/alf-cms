@@ -23,7 +23,7 @@
 class Config {
 
 /**
- * Guarda os valores atuas das configurações
+ * Guarda os valores atuais das configurações
  *
  * @var array
  */
