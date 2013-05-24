@@ -34,13 +34,14 @@ App::load(array(
     'config',
     'exception',
     'database'. DS .'database',
+    'wizard'. DS .'wizard',
 ));
+
+// Inicia o wizard
+Wizard::init();
 
 // Carrega as configurações do usuário
 App::load('config', ROOT);
-
-// Inicia o banco de dados
-Database::init();
 
 // Coisas devem acontecer aqui
 
