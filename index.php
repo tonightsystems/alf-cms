@@ -35,6 +35,10 @@
                 <li><a href="#">Sobre</a></li>
                 <li><a href="#">Contato</a></li>
             </ul>
+            <form action="" id="busca">
+                <input type="text" name="busca" placeholder="Buscar no site">
+                <input type="submit" name="busca-enviar" id="busca-enviar" value="">
+            </form>
         </div>
     </header>
     <div id="main"></div>
