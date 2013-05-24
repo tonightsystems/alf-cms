@@ -5,7 +5,7 @@
 <!--[if IE]><![endif]-->
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>ALF CMS</title>
 <meta name="author" content="" />
 <link rel="shortcut icon" href="" />
 <!-- Touch Icons -->
@@ -27,7 +27,20 @@
 </head>
 <body>
 <div id="all">
-    <header id="header"></header>
+    <header id="header">
+        <div class="center">
+            <div id="logo"><img src="img/logo-tema.png"></div>
+            <ul id="menu">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <form action="" id="busca">
+                <input type="text" name="busca" placeholder="Buscar no site">
+                <input type="submit" name="busca-enviar" id="busca-enviar" value="">
+            </form>
+        </div>
+    </header>
     <div id="main"></div>
     <footer id="footer"></footer>
 </div>

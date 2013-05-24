@@ -18,6 +18,13 @@
 /* ===================================================================
  * = FONTS
  * =================================================================== */
+@font-face {
+    font-family: 'Conv_segoeui';
+    src: url('fonts/segoeui.eot');
+    src: local('☺'), url('fonts/segoeui.woff') format('woff'), url('fonts/segoeui.ttf') format('truetype'), url('fonts/segoeui.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* ===================================================================
  * = TEMPLATE
@@ -26,8 +33,8 @@ html {
     overflow-y: auto;
 }
 body {
-    font: 14px/18px Arial, Helvetica, sans-serif;
-    color:#444;
+    font: 14px/18px 'Conv_segoeui', Arial, Helvetica, sans-serif;
+    color: #4B4B4B;
 }
 p {
     margin: 0 0 10px;
@@ -74,10 +81,73 @@ input {
 .ie6 input {
     vertical-align: text-bottom;
 }
+.center {
+    width: 920px;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 /* HEADER
  * =================================================================== */
-#header { }
+#header {
+    overflow: hidden;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    background-color: #5A8CAC;
+    border-bottom: 8px solid #C8E3F5;
+}
+#logo {
+    float: left;
+    margin-left: 45px;
+    padding-right: 20px;
+    border-right: 1px solid #5584A2;
+}
+/* menu principal */
+#menu {
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+
+    li {
+        display: inline;
+        margin-right: 30px;
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+/* Form de busca */
+#busca {
+    float: right;
+    margin-right: 60px;
+    background-color: #BDD1DE;
+    border: 1px solid #595959;
+    border-radius: 5px;
+    padding: 2px 5px 5px 5px;
+    margin-top: 15px;
+
+    input {
+        background-color: #BDD1DE;
+        font-size: 12px;
+        line-height: 14px;
+        color: #595959;
+        border: none;
+    }
+    #busca-enviar {
+        padding: 10px 10px 8px 10px;
+        width: 12px;
+        height: 14px;
+        background-image: url(../img/lupa.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
 
 /* CONTENT
  * =================================================================== */
