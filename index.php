@@ -41,7 +41,11 @@
             </form>
         </div>
     </header>
-    <div id="main"></div>
+    <div id="main">
+        <div class="content center">
+
+        </div>
+    </div>
     <footer id="footer"></footer>
 </div>
 <!-- SCRIPTS -->
