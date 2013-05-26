@@ -1,0 +1,310 @@
+/**
+ * Application's styles
+ *
+ * In this file, you set up the look and feel of your application.
+ *
+ * Licensed under Creative Commons Attribution-ShareAlike 3.0 Unported
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright       Copyright 2012-2012, Gabriel Izaias (http://gabrielizaias.com)
+ * @license         CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
+ */
+
+/* ===================================================================
+ * = LIBRARIES
+ * =================================================================== */
+@import url(lib/normalize.less);
+
+/* ===================================================================
+ * = FONTS
+ * =================================================================== */
+@font-face {
+    font-family: 'Conv_segoeui';
+    src: url('fonts/segoeui.eot');
+    src: local('☺'), url('fonts/segoeui.woff') format('woff'), url('fonts/segoeui.ttf') format('truetype'), url('fonts/segoeui.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ===================================================================
+ * = TEMPLATE
+ * =================================================================== */
+html {
+    overflow-y: auto;
+}
+body {
+    font: 14px/18px 'Conv_segoeui', Arial, Helvetica, sans-serif;
+    color: #4B4B4B;
+}
+p {
+    margin: 0 0 10px;
+}
+a {
+    &:hover { }
+    &:active { }
+    &:visited,
+    &:hover {
+        outline: none;
+    }
+}
+ul {
+    padding-left: 0;
+}
+ol {
+    list-style-type: decimal;
+}
+ul ul,
+ol ol {
+    padding-left: 15px;
+}
+small {
+    font-size: 85%;
+}
+textarea {
+    overflow: auto;
+}
+img {
+    -ms-interpolation-mode: bicubic;
+}
+button {
+    cursor: pointer;
+}
+input {
+    &[type=button],
+    &[type=submit] {
+        cursor: pointer;
+    }
+}
+.ie7 input[type="checkbox"] {
+    vertical-align: baseline;
+}
+.ie6 input {
+    vertical-align: text-bottom;
+}
+.center {
+    width: 920px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* HEADER
+ * =================================================================== */
+#header {
+    overflow: hidden;
+    padding-top: 23px;
+    padding-bottom: 23px;
+    background-color: #5A8CAC;
+    border-bottom: 8px solid #C8E3F5;
+}
+#logo {
+    float: left;
+    margin-left: 45px;
+    padding-right: 20px;
+    border-right: 1px solid #5584A2;
+}
+/* menu principal */
+#menu {
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+
+    li {
+        display: inline;
+        margin-right: 30px;
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+/* Form de busca */
+#busca {
+    float: right;
+    margin-right: 60px;
+    background-color: #BDD1DE;
+    border: 1px solid #595959;
+    border-radius: 5px;
+    padding: 2px 5px 5px 5px;
+    margin-top: 15px;
+
+    input {
+        background-color: #BDD1DE;
+        font-size: 12px;
+        line-height: 14px;
+        color: #595959;
+        border: none;
+    }
+    #busca-enviar {
+        padding: 10px 10px 8px 10px;
+        width: 12px;
+        height: 14px;
+        background-image: url(../img/lupa.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
+
+/* CONTENT
+ * =================================================================== */
+#main {
+    background-color: #5A8CAC;
+    overflow: hidden;
+
+    &.interna {
+        background-color: #F1F1F1;
+        padding: 20px 0px;
+    }
+}
+.content {
+    border: 1px solid #DEDEDE;
+    border-radius: 10px;
+    padding: 20px 10px 20px 20px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+#localizacao {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 5px;
+
+    span {
+        color: #2B6E99;
+    }
+}
+.texto {
+    float: left;
+    width: 625px;
+    padding-right: 20px;
+    border-right: 1px solid #DEDEDE;
+
+    h2 {
+        color: #2B6E99;
+        font-size: 24px;
+        line-height: 26px;
+        border-bottom: 1px solid #DEDEDE;
+        padding-bottom: 15px;
+    }
+}
+#sidebar {
+    padding-left: 20px;
+    float: left;
+    width: 250px;
+}
+
+/* HOME */
+#destaque {
+    width: 100%;
+    float: left;
+    color: #FFFFFF;
+    margin-top: 60px;
+    padding-bottom: 100px;
+    border-bottom: 9px solid #C8E3F5;
+}
+
+#destaque-texto{
+    width: 395px;
+    float: left;
+
+    h2 {
+        font-size: 30px;
+        line-height: 32px;
+        margin-bottom: 10px;
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+#destaque-imagem {
+    background-color: #78A0BA;
+    padding: 10px 10px 6px 10px;
+    float: right;
+}
+
+#home-conteudo {
+    float: left;
+    width: 100%;
+    background-color: #F1F1F1;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.home-box {
+    width: 240px;
+
+    h3 {
+        font-size: 24px;
+        line-height: 26px;
+        width: 240px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #D7D7D7;
+        margin-bottom: 10px;
+
+        a {
+            color: #2B6E99;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.home-box-meio {
+    margin-left: 100px;
+}
+
+/* FOOTER
+ * =================================================================== */
+#footer {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-size: 12px;
+    line-height: 14px;
+    overflow: hidden;
+}
+#direitos {
+    float: left;
+}
+#redes {
+    float: right;
+    width: 165px;
+
+    span {
+        display: block;
+        margin-top: 10px;
+        float: left;
+    }
+    ul {
+        float: right;
+        margin-top: 0;
+    }
+    li {
+        display: inline;
+        margin-left: 3px;
+        margin-right: 3px;
+
+        a:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+/* ===================================================================
+ * = RESPONSIVE
+ * =================================================================== */
+@import url(responsive.less);
+
+/* ===================================================================
+ * = CONVENIENCE
+ * =================================================================== */
+@import url(utils.less);
