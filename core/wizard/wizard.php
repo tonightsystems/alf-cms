@@ -37,7 +37,14 @@ class Wizard {
  * @return void
  */
     private function checkConfig() {
+        // Se não existir arquivo de configuração do usuário
         if (!file_exists(ROOT . DS . 'config' . EXT)) {
+            // Se não existir arquivo de configuração padrão, ferrou.
+            if (!file_exists(WIZARD . DS . 'sample' . DS . 'config' . EXT)) {
+                die(__('Config sample not found at') . ' ' . WIZARD . DS . 'sample');
+            }
+
+            // Carrega setup
             App::load('setup', WIZARD);
         }
     }
