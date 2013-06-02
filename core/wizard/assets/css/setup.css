@@ -33,6 +33,10 @@ body {
     margin-top: 28px;
 }
 
+.tab-content {
+    padding-top: 10px;
+}
+
 .none {
     display: none !important;
 }
