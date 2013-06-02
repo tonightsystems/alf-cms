@@ -19,22 +19,21 @@
 class App {
 
 /**
- * Inicia o timer interno
+ * Inicia o sistema
  *
  * @return void
  */
     public static function start() {
-        if (!defined('TIME_START'))
-            define('TIME_START', microtime(true));
+        ob_start();
     }
 
 /**
- * Informa o tempo de execução do sistema
+ * Finaliza o sistema
  *
- * @return float
+ * @return void
  */
     public static function finish() {
-        return microtime(true) - TIME_START;
+        ob_end_flush();
     }
 
 /**
@@ -57,5 +56,16 @@ class App {
             return true;
         }
         return false;
+    }
+
+/**
+ * Timer interno do sistema
+ *
+ * @param  string $command Caso `$command` seja 'start', inicia o timer do sistema,
+ *                         caso contrário, retorna o tempo de execução até o momento
+ * @return void|float
+ */
+    public static function timer($command) {
+        return microtime(true) - TIME_START;
     }
 }

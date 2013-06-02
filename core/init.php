@@ -25,7 +25,7 @@ error_reporting(E_ALL);
 // Requisita a classe principal do sistema
 require CORE . 'app' . EXT;
 
-// Inicia o timer interno do sistema
+// Inicia o sistema
 App::start();
 
 // Carrega os arquivos do sistema
@@ -45,5 +45,5 @@ App::load('config', ROOT);
 
 // Coisas devem acontecer aqui
 
-// Finaliza o timer do sistema
+// Finaliza sistema
 App::finish();
