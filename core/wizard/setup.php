@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Setup &rsaquo; Alf CMS</title>
+<title><?php echo __('Setup'); ?> &rsaquo; Alf CMS</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="Alf CMS">
@@ -41,7 +41,7 @@
             <li><a href="#step-4"><?php echo __('Step 4'); ?></a></li>
         </ul>
 
-        <form action="" class="form-horizontal">
+        <form action="" method="post" class="form-horizontal">
             <div class="tab-content">
                 <!-- STEP 1 -->
                 <div class="tab-pane" id="step-1">
@@ -88,13 +88,13 @@
                     <div class="control-group">
                         <label class="control-label" for="appName"><?php echo __('Website name'); ?></label>
                         <div class="controls">
-                            <input type="text" id="appName" placeholder="<?php echo __('Your website name'); ?>">
+                            <input type="text" name="app_name" id="appName" placeholder="<?php echo __('Your website name'); ?>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="appDescription"><?php echo __('Website description'); ?></label>
                         <div class="controls">
-                            <input type="text" id="appDescription" placeholder="<?php echo __('Your website description') ?>">
+                            <input type="text" name="app_description" id="appDescription" placeholder="<?php echo __('Your website description') ?>">
                         </div>
                     </div>
                     <div class="control-group">
@@ -109,13 +109,13 @@
                     <div class="control-group">
                         <label class="control-label" for="userEmail"><?php echo __('User e-mail'); ?></label>
                         <div class="controls">
-                            <input type="text" id="userEmail" placeholder="<?php echo __('email@example.com'); ?>">
+                            <input type="email" name="user_email" id="userEmail" placeholder="<?php echo __('email@example.com'); ?>">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label" for="userPassword"><?php echo __('User password'); ?></label>
                         <div class="controls">
-                            <input type="text" id="userPassword" placeholder="<?php echo __('Password'); ?>">
+                            <input type="password" name="user_password" id="userPassword" placeholder="<?php echo __('Password'); ?>">
                         </div>
                     </div>
                     <div class="control-group">
