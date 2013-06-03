@@ -85,7 +85,7 @@ class Database {
  *
  * @var object
  */
-    private static $mysqli;
+    private static $connection;
 
 /**
  * Inicia a conexão com o banco de dados
@@ -99,20 +99,30 @@ class Database {
         static::$database_name = Config::get('database_name');
         static::$table_prefix = Config::get('table_prefix');
 
-        static::$mysqli = new mysqli(static::$host, static::$user, static::$password,
-            static::$database_name);
-
-        static::check();
+        static::$connection = new mysqli(static::$host, static::$user, static::$password, static::$database_name);
     }
 
 /**
- * Verifica se a estrutura do banco de dados necessária existe
+ * Verifica a conexão com o banco de dados
  *
  * @todo Executar verificações de existencia das tabelas
- * @return void
+ * @return boolean
  */
-    public function check() {
+    public function check($connection = array('database_host', 'database_user', 'database_password', 'database_name')) {
+        $conn = mysqli_connect(
+            $connection['database_host'],
+            $connection['database_user'],
+            $connection['database_password'],
+            $connection['database_name']
+        );
 
+        if (!$conn) {
+            return false;
+        }
+
+        mysqli_close($conn);
+
+        return true;
     }
 
 /**
