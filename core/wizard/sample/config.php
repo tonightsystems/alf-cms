@@ -38,6 +38,11 @@ Config::set('database_charset', 'utf8');
 Config::set('table_prefix', 'alf_');
 
 /**
+ * Define o charset do sistema
+ */
+Config::set('charset', 'utf-8');
+
+/**
  * Define a linguagem padrão do sistema.
  */
 Config::set('language', 'pt-BR');
