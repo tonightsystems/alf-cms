@@ -8,27 +8,63 @@
     $configFile = file(WIZARD . DS . 'sample' . DS . 'config' . EXT);
 
     if (!empty($_POST)) {
-        switch ($_POST['step']) {
-            case '1':
                # code...
                 break;
+        switch ($step) {
+            case 1:
+                foreach ($configFile as $lineNum => $line) {
+                    $item = inPost($line);
+                    if ($item !== false) {
+                    }
+                }
 
-            case '2':
+                // Cria arquivo de configuração do usuário
+                $handle = fopen(ROOT . 'config-tmp' . EXT, 'w');
+                foreach($configFile as $line) {
+                    fwrite($handle, $line);
+                }
+                fclose($handle);
+                chmod(ROOT . 'config-tmp' . EXT, 0666);
+
+                // Cria o banco de dados
+                Config::set('database_host', $_POST['database_host']);
+                Config::set('database_user', $_POST['database_user']);
+                Config::set('database_password', $_POST['database_password']);
+                Config::set('database_name', $_POST['database_name']);
+                Config::set('table_prefix', $_POST['table_prefix']);
+                Database::init();
+                if (Database::make()) {
+                    redirect('?step=2');
+                }
+                break;
+
+            case 2:
+                break;
+
+            case 3:
                 # code...
                 break;
 
-            case '3':
-                # code...
-                break;
-
-            case '4':
-                # code...
-                break;
-
-            default:
-                # code...
+            case 4:
                 break;
         }
+    }
+
+/**
+ * Verifica se algum índice do `$_POST` existe na linha do arquivo de
+ * configuração
+ *
+ * @param  string $line A linha do arquivo de configuração
+ * @return mixed
+ */
+    function inPost($line) {
+        foreach ($_POST as $key => $value) {
+            if (strpos($line, $key) != false){
+                return $key;
+            }
+        }
+
+        return false;
     }
 ?>
 <!DOCTYPE html>
@@ -71,10 +107,7 @@
     <?php endif; ?>
 
     <div id="steps" >
-
         <form action="" method="post" class="form-horizontal">
-            <input type="hidden" name="step" value="<?php echo $step; ?>">
-
             <?php
                 // PASSO 1
                 if ($step === 1) :
@@ -83,31 +116,31 @@
                 <div class="control-group">
                     <label class="control-label" for="dbHost"><?php echo __('Database host'); ?></label>
                     <div class="controls">
-                        <input type="text" name="database_host" id="dbHost" placeholder="192.168.0.1" autofocus>
+                        <input type="text" name="database_host" id="dbHost" placeholder="192.168.0.1" value="localhost" autofocus>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="dbUser"><?php echo __('Database user'); ?></label>
                     <div class="controls">
-                        <input type="text" name="database_user" id="dbUser" placeholder="root">
+                        <input type="text" name="database_user" id="dbUser" placeholder="root" value="root">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="dbPassword"><?php echo __('Database password'); ?></label>
                     <div class="controls">
-                        <input type="text" name="database_password" id="dbPassword" placeholder="root">
+                        <input type="text" name="database_password" id="dbPassword" placeholder="root" value="root">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="dbName"><?php echo __('Database name'); ?></label>
                     <div class="controls">
-                        <input type="text" name="database_name" id="dbName" placeholder="alfcms">
+                        <input type="text" name="database_name" id="dbName" placeholder="alfcms" value="alf">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="dbPrefix"><?php echo __('Table prefix'); ?></label>
                     <div class="controls">
-                        <input type="text" name="table_prefix" id="dbPrefix" placeholder="alf_">
+                        <input type="text" name="table_prefix" id="dbPrefix" placeholder="alf_" value="alf_">
                     </div>
                 </div>
                 <div class="control-group">

@@ -1,6 +1,0 @@
-CREATE  TABLE IF NOT EXISTS {{db_name}}.`{{table_prefix}}settings` (
-  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(255) NOT NULL ,
-  `value` TEXT NOT NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = InnoDB;

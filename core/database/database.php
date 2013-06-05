@@ -85,12 +85,12 @@ class Database {
  *
  * @var object
  */
-    private static $connection;
+    private static $mysqli;
 
 /**
  * Inicia a conexão com o banco de dados
  *
- * @return [type] [description]
+ * @return void
  */
     public function init() {
         static::$host = Config::get('database_host');
@@ -99,7 +99,32 @@ class Database {
         static::$database_name = Config::get('database_name');
         static::$table_prefix = Config::get('table_prefix');
 
-        static::$connection = new mysqli(static::$host, static::$user, static::$password, static::$database_name);
+        static::connect(array(
+            'database_host' => static::$host,
+            'database_user' => static::$user,
+            'database_password' => static::$password,
+            'database_name' => static::$database_name
+        ));
+    }
+
+/**
+ * Abre a conexão com o banco de dados
+ *
+ * @param  array  $connection [description]
+ * @return void
+ */
+    public function connect($connection) {
+        static::$host = $connection['database_host'];
+        static::$user = $connection['database_user'];
+        static::$password = $connection['database_password'];
+        static::$database_name = $connection['database_name'];
+
+        static::$mysqli = new mysqli(
+            static::$host,
+            static::$user,
+            static::$password,
+            static::$database_name
+        );
     }
 
 /**
@@ -126,13 +151,34 @@ class Database {
     }
 
 /**
+ * Cria as tabelas no banco de dados
+ *
+ * @return boolean
+ */
+    public function make($table_prefix = null) {
+        $table_prefix = ($table_prefix) ? $table_prefix : Config::get('table_prefix');
+
+        require CORE . 'database' . DS . 'schema' . EXT;
+
+        foreach ($schema as $query) {
+            static::$mysqli->query($query);
+
+            if(static::error() !== '') {
+                die(static::error());
+            }
+        }
+
+        return true;
+    }
+
+/**
  * Executa uma query no banco
  *
  * @param  string $query Query a ser executada no banco
  * @return
  */
-    public function query($query) {
-        if (!isset($query)) {
+    public function query($query = null) {
+        if (!$query) {
             throw new Exception(__('Undefined database query'));
         }
         return static::$mysqli->query(static::escape($query));
@@ -145,7 +191,16 @@ class Database {
  * @return string
  */
     public function escape($string) {
-        return static::$mysql->real_escape_string($string);
+        return static::$mysqli->real_escape_string($string);
+    }
+
+/**
+ * Retorna o último erro
+ *
+ * @return string
+ */
+    public function error() {
+        return static::$mysqli->error;
     }
 
 /**
@@ -155,5 +210,25 @@ class Database {
  */
     public function close() {
         return static::$mysqli->close();
+    }
+
+/**
+ * [setting description]
+ * @param  [type] $name  [description]
+ * @param  [type] $value [description]
+ * @return [type]        [description]
+ */
+    public function setting($name = null, $value = null) {
+        if ($name) {
+            $table =  'settings';
+            // if ($value) {
+            //     return Database::query("INSERT INTO `$table` (`id`, `name`, `value`, `created`, `modified`) VALUES (NULL, '$name', '$value', NOW(), NOW())");
+            // }
+
+            // return "SELECT `value` FROM `$table` WHERE `name` = '$name'";
+            return static::$mysqli;
+        }
+
+        return false;
     }
 }
