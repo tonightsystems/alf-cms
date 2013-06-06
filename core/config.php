@@ -23,7 +23,7 @@
 class Config {
 
 /**
- * Guarda os valores atuas das configurações
+ * Guarda os valores atuais das configurações
  *
  * @var array
  */
@@ -57,9 +57,10 @@ class Config {
  * @return mixed        Valor da configuração
  */
     public static function get($key = null) {
-        if (!isset(static::$values[$key])) {
-            throw new Exception(__('Configuration value undefined'));
+        if ($key) {
+            return static::$values[$key];
         }
-        return static::$values[$key];
+
+        return static::$values;
     }
 }

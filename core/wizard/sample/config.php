@@ -22,10 +22,10 @@
 /**
  * Configurações do banco de dados.
  */
-Config::set('database_host', 'localhost');
-Config::set('database_user', 'root');
-Config::set('database_password', 'root');
-Config::set('database_name', 'alf');
+Config::set('database_host', '');
+Config::set('database_user', '');
+Config::set('database_password', '');
+Config::set('database_name', '');
 Config::set('database_port', 3306);
 Config::set('database_charset', 'utf8');
 
@@ -36,6 +36,11 @@ Config::set('database_charset', 'utf8');
  * única base de dados.
  */
 Config::set('table_prefix', 'alf_');
+
+/**
+ * Define o charset do sistema
+ */
+Config::set('charset', 'utf-8');
 
 /**
  * Define a linguagem padrão do sistema.

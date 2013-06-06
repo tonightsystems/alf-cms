@@ -25,7 +25,7 @@ error_reporting(E_ALL);
 // Requisita a classe principal do sistema
 require CORE . 'app' . EXT;
 
-// Inicia o timer interno do sistema
+// Inicia o sistema
 App::start();
 
 // Carrega os arquivos do sistema
@@ -34,15 +34,19 @@ App::load(array(
     'config',
     'exception',
     'database'. DS .'database',
+    'wizard'. DS .'wizard',
 ));
+
+// Carrega as configurações temporárias, se existirem
+App::load('config-tmp', ROOT);
+
+// Inicia o wizard
+Wizard::init();
 
 // Carrega as configurações do usuário
 App::load('config', ROOT);
 
-// Inicia o banco de dados
-Database::init();
-
 // Coisas devem acontecer aqui
 
-// Finaliza o timer do sistema
+// Finaliza sistema
 App::finish();
