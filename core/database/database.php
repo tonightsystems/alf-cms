@@ -178,7 +178,7 @@ class Database {
  * @return
  */
     public function query($query = null) {
-        if (!$query) {
+        if ($query === null) {
             throw new Exception(__('Undefined database query'));
         }
         return static::$mysqli->query(static::escape($query));
@@ -191,7 +191,7 @@ class Database {
  * @return string
  */
     public function escape($string) {
-        return static::$mysqli->real_escape_string($string);
+        return $string;
     }
 
 /**
@@ -220,13 +220,22 @@ class Database {
  */
     public function setting($name = null, $value = null) {
         if ($name) {
-            $table =  'settings';
-            // if ($value) {
-            //     return Database::query("INSERT INTO `$table` (`id`, `name`, `value`, `created`, `modified`) VALUES (NULL, '$name', '$value', NOW(), NOW())");
-            // }
+            $table =  static::$table_prefix . 'settings';
 
-            // return "SELECT `value` FROM `$table` WHERE `name` = '$name'";
-            return static::$mysqli;
+            // Verifica a existência do registro especificado pelo `$name`
+            $temp = Database::query("SELECT `value` FROM `$table` WHERE `name` = '$name'");
+
+            if ($value !== null) {
+                // Caso já exista um registro, update
+                if ($temp->num_rows !== 0) {
+                    return Database::query("UPDATE `$table` SET `value` = '$value', `modified` = NOW() WHERE `name` = '$name'");
+                }
+
+                // Caso não exista um registro, insert
+                return Database::query("INSERT INTO `$table` (`id`, `name`, `value`, `created`, `modified`) VALUES (NULL, '$name', '$value', NOW(), NOW())");
+            }
+
+            return $temp;
         }
 
         return false;

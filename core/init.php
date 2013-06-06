@@ -37,6 +37,9 @@ App::load(array(
     'wizard'. DS .'wizard',
 ));
 
+// Carrega as configurações temporárias, se existirem
+App::load('config-tmp', ROOT);
+
 // Inicia o wizard
 Wizard::init();
 

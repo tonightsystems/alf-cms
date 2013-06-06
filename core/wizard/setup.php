@@ -8,13 +8,12 @@
     $configFile = file(WIZARD . DS . 'sample' . DS . 'config' . EXT);
 
     if (!empty($_POST)) {
-               # code...
-                break;
         switch ($step) {
             case 1:
                 foreach ($configFile as $lineNum => $line) {
                     $item = inPost($line);
                     if ($item !== false) {
+                        $configFile[$lineNum] = "Config::set('" . $item . "', '" . $_POST[$item] . "');\r\n";
                     }
                 }
 
@@ -39,13 +38,25 @@
                 break;
 
             case 2:
+                Database::init();
+                Database::setting('app_name', $_POST['app_name']);
+                Database::setting('app_description', $_POST['app_description']);
+                redirect('?step=3');
                 break;
 
             case 3:
-                # code...
+                Database::init();
+                $table = Config::get('table_prefix') . 'users';
+                $name = $_POST['user_name'];
+                $email = $_POST['user_email'];
+                $password = $_POST['user_password'];
+                Database::query("INSERT INTO `$table` (`id`, `name`, `email`, `password`, `type`, `created`, `modified`) VALUES (NULL, '$name', '$email', '$password', 'admin', NOW(), NOW())");
+                redirect('?step=4');
                 break;
 
             case 4:
+                rename(ROOT . 'config-tmp' . EXT, ROOT . 'config' . EXT);
+                redirect('admin/?first');
                 break;
         }
     }
@@ -182,13 +193,19 @@
             ?>
             <div id="step-3">
                 <div class="control-group">
-                    <label class="control-label" for="userEmail"><?php echo __('User e-mail'); ?></label>
+                    <label class="control-label" for="userName"><?php echo __('Your name'); ?></label>
                     <div class="controls">
-                        <input type="email" name="user_email" id="userEmail" placeholder="<?php echo __('email@example.com'); ?>" autofocus>
+                        <input type="text" name="user_name" id="userName" placeholder="" autofocus>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="userPassword"><?php echo __('User password'); ?></label>
+                    <label class="control-label" for="userEmail"><?php echo __('Your e-mail'); ?></label>
+                    <div class="controls">
+                        <input type="email" name="user_email" id="userEmail" placeholder="<?php echo __('email@example.com'); ?>">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="userPassword"><?php echo __('Your password'); ?></label>
                     <div class="controls">
                         <input type="password" name="user_password" id="userPassword" placeholder="<?php echo __('Password'); ?>">
                     </div>
@@ -214,7 +231,7 @@
                             <div class="caption">
                                 <h3>Theme 1</h3>
                                 <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                                <p><label for="theme-1"><input type="radio" name="theme" id="theme-1" class="none" value="1"> <span class="btn btn-block" data-toggle="button"><?php echo __('Select theme'); ?></span></label></p>
+                                <p><label for="theme-1"><input type="radio" name="theme" id="theme-1" class="none" value="1" checked="checked"> <span class="btn btn-block" data-toggle="button"><?php echo __('Select theme'); ?></span></label></p>
                             </div>
                         </div>
                     </li>

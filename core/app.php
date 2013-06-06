@@ -44,17 +44,17 @@ class App {
  */
     public static function load($config = null, $context = CORE) {
         if ($config) {
-            if (is_array($config)){
-                foreach ($config as $file) {
-                    if (file_exists($context . DS . $file . EXT)) {
-                        require_once $context . DS . $file . EXT;
-                    }
-                }
-            } else {
-                require_once $context . DS . $config . EXT;
+            if (!is_array($config)) {
+                $config = array($config);
             }
-            return true;
+
+            foreach ($config as $file) {
+                if (file_exists($context . DS . $file . EXT)) {
+                    require_once $context . DS . $file . EXT;
+                }
+            }
         }
+
         return false;
     }
 
